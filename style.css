@@ -1,0 +1,241 @@
+/* ============================================================
+   GLOBAL STYLES - पूरे पेज की सामान्य सेटिंग
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* फोटो जैसा डार्क ग्रेडिएंट बैकग्राउंड */
+    background: radial-gradient(circle at top right, #1a2a3a 0%, #0c0f16 100%);
+    overflow: hidden;
+}
+
+/* ============================================================
+   MAIN CONTAINER - मुख्य चैट बॉक्स का लुक
+   ============================================================ */
+.chat-main-container {
+    width: 95%;
+    max-width: 400px;
+    height: 100dvh; /* ✅ mobile friendly fix */
+    /* प्रीमियम कांच जैसा इफ़ेक्ट (Blur) */
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   TOP HEADER - लोगो और ऊपर के बटन्स
+   ============================================================ */
+.chat-top-header {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vakil-brand-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.vakil-brand-name {
+    color: #ffd700; /* गोल्ड रंग */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.header-action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.top-util-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.top-util-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ✅ Tap feedback */
+.top-util-btn:active,
+.send-message-btn:active {
+    transform: scale(0.95);
+}
+
+/* ============================================================
+   DROPDOWN MENUS - सेटिंग्स, भाषा और प्लस के विकल्प
+   ============================================================ */
+.dropdown-content {
+    display: none; /* शुरू में छुपा रहेगा */
+    position: absolute;
+    background: rgba(25, 25, 25, 0.98);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+
+    /* ✅ animation add */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: 0.2s ease;
+}
+
+/* मेनू दिखाने के लिए क्लास */
+.show {
+    display: block !important;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* अलग-अलग मेनू की पोजीशन */
+.settings-dropdown { top: 115px; left: 15px; }
+.sound-dropdown { top: 115px; left: 50%; transform: translateX(-50%); }
+.lang-dropdown {
+    top: 115px;
+    right: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.plus-dropdown { bottom: 70px; left: 15px; }
+
+.dropdown-content button {
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   CHAT AREA - मैसेज दिखने की जगह
+   ============================================================ */
+.chat-display-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ✅ Custom Scrollbar */
+.chat-display-area::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-display-area::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* मैसेज बबल का स्टाइल */
+.message-bubble {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    color: #eee;
+    border-bottom-left-radius: 2px;
+}
+
+.user-message {
+    align-self: flex-end;
+    background: #2563eb;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+/* ============================================================
+   BOTTOM BAR - इनपुट और सेंड बटन
+   ============================================================ */
+.chat-input-bar {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    gap: 10px;
+}
+
+.text-input-field {
+    flex: 1;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22.5px;
+    color: white;
+    padding: 0 15px;
+    outline: none;
+}
+
+/* ✅ Placeholder visibility fix */
+.text-input-field::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.send-message-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-options-btn, .voice-input-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    /* ✅ better spacing */
+    width: 35px;
+    .bot-message {
+    white-space: pre-wrap;
+}
+}

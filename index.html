@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supreme Vakil AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body><div class="chat-main-container"><!-- 🔝 HEADER -->
+<div class="chat-top-header">
+
+    <div class="vakil-brand-section">
+        <span style="font-size: 20px;">⚖️</span>
+        <span class="vakil-brand-name">Supreme Vakil AI</span>
+    </div>
+
+    <div class="header-action-buttons">
+
+        <!-- 📜 HISTORY -->
+        <button class="top-util-btn" id="historyBtn">📜 हिस्ट्री</button>
+
+        <!-- ➕ PAGE -->
+        <button class="top-util-btn" id="addPageBtn">➕ Page</button>
+
+        <!-- 🔊 SOUND -->
+        <button class="top-util-btn" id="soundBtn">🔊 ON</button>
+
+    </div>
+
+</div>
+
+<!-- 📎 FILE INPUT -->
+<input type="file" id="fileInput" hidden>
+
+<!-- 💬 CHAT -->
+<div class="chat-display-area" id="chatArea">
+    <div class="message-bubble bot-message">
+        नमस्ते! मैं <b>Supreme Vakil AI</b> हूँ।
+    </div>
+</div>
+
+<!-- ⌨️ INPUT -->
+<div class="chat-input-bar">
+    <button class="add-options-btn" id="plusBtn">➕</button>
+    <button class="voice-input-btn" id="voiceBtn">🎤</button>
+    <input type="text" id="userInput" class="text-input-field"
+           placeholder="अपना सवाल लिखें..."
+           onkeypress="if(event.key==='Enter'){document.getElementById('sendBtn').click();}">
+    <button class="send-message-btn" id="sendBtn">💬</button>
+</div>
+
+<!-- ➕ EXTRA MENU -->
+<div id="plusMenu" class="dropdown-content plus-dropdown">
+    <button id="uploadBtn">📎 फाइल अपलोड</button>
+    <button id="lawBtn">⚖️ कानून खोजें</button>
+    <button id="firBtn">📄 FIR जेनरेटर</button>
+</div>
+
+</div><script src="{{ url_for('static', filename='script.js') }}"></script></body>
+
+</html>
