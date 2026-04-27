@@ -1,0 +1,8 @@
+Flask
+gunicorn
+python-dotenv
+openai
+pillow
+pytesseract
+werkzeug
+psycopg2-binary
